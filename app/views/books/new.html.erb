@@ -2,11 +2,11 @@
 <%= form_with model: @book, local:true do |f| %>
   <div class="form-group">
     <p>Title</p>
-    <%= f.text_field :book_title %>
+    <%= f.text_field :title %>
   </div>
   <div class="form-group">
     <p>Opinion</p>
-    <%= f.text_area :book_opinion %>
+    <%= f.text_area :opinion %>
   </div>
   <%= f.submit "Create Book" %>
 <% end %>
