@@ -1,0 +1,31 @@
+<div class="book-body">
+  <h2>Book detail</h2>
+  <div class="book-body-show">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to user_path(@user.id) do %>
+              <%= image_tag("sample-author1.jpg") %>
+              <%= @book.user.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to book_path(@book.id) do %>
+              <%= @book.title %>
+            <% end %>
+          </td>
+          <td>
+            <%= @book.opinion %>
+          </td>
+          <td></td>
+          <td>
+            <% if @book.user == current_user %>
+              <%= link_to "Destroy", book_path(@book), method: :delete %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

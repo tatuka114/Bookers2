@@ -1,8 +1,8 @@
 class CreateBooks < ActiveRecord::Migration[5.2]
   def change
     create_table :books do |t|
-      t.intrger :user_id
-      t.string :user_image_id
+      t.integer :user_id
+      t.string :profile_image_id
       t.text :title
       t.text :opinion
 
