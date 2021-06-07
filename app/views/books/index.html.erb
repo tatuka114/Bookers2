@@ -10,8 +10,9 @@
         <th></th>
       </tr>
     </thead>
-    <tbody>
     <% @books.each do |book| %>
+    <tbody>
+
       <tr>
 
         <td>
@@ -26,6 +27,7 @@
           <%= book.opinion %>
         </td>
       </tr>
+
     </tbody>
     <% end %>
   </table>
