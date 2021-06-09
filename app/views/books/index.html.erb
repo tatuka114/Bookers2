@@ -1,15 +1,50 @@
-<h2>Books</h2>
+<div class="container">
+  <% if @book.errors.any? %>
+    <div class="errors">
+      <h2><%= @book.errors.count %>errors prohibited this book from being saved:</h2>
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class=".col-lg-3">
+      <h2>User info</h2>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "no_image.jpg" %>
+      <table>
+        <tbody>
+          <tr>
+            <th>name</th>
+            <th><%= f.text_field :name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th></th>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <% if @user.id == current_user.id %>
+          <%= link_to "edit", edit_user_path(@user) %>
+        <% end %>
+      </div>
+      <h2>New book</h2>
+        <%= form_with model: @book, local:true do |f| %>
+          <div class="form-group">
+            <p>Title</p>
+            <%= f.text_field :title %>
+          </div>
+          <div class="form-group">
+            <p>Opinion</p>
+            <%= f.text_area :opinion %>
+          </div>
+          <%= f.submit "Create Book" %>
+        <% end %>
+    </div>
 
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Opinion</th>
-        <th></th>
-      </tr>
-    </thead>
+    <h2>Books</h2>
     <% @books.each do |book| %>
     <tbody>
 

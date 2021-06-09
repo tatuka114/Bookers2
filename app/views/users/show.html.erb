@@ -1,7 +1,7 @@
 <div class="profile-newbook">
   <div class="profile">
     <h2>User info</h2>
-    <#= image_tag("no_image.jpg") %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "no_image.jpg" %>
     <table>
       <tbody>
         <tr>
@@ -20,6 +20,18 @@
       <% end %>
     </div>
   </div>
+  <h2>New book</h2>
+      <%= form_with model: @book, local:true do |f| %>
+        <div class="form-group">
+          <p>Title</p>
+          <%= f.text_field :title %>
+        </div>
+        <div class="form-group">
+          <p>Opinion</p>
+          <%= f.text_area :opinion %>
+         </div>
+        <%= f.submit "Create Book" %>
+      <% end %>
 </div>
 <h2>Books</h2>
 <div>
@@ -32,24 +44,25 @@
         <th></th>
       </tr>
     </thead>
-    <tbody>
     <% @books.each do |book| %>
-      <tr>
+      <tbody>
 
-        <td>
-          <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-        </td>
-        <td>
-          <%= link_to book_path(book.id) do %>
-            <%= book.title %>
-          <% end %>
-        </td>
-        <td>
-          <%= book.opinion %>
-        </td>
+        <tr>
 
-      </tr>
-    </tbody>
+          <td>
+            <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+          </td>
+          <td>
+            <%= link_to book_path(book.id) do %>
+              <%= book.title %>
+            <% end %>
+          </td>
+          <td>
+            <%= book.opinion %>
+          </td>
+
+        </tr>
+      </tbody>
     <% end %>
   </table>
 </div>
