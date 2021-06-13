@@ -16,6 +16,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .notice{
   color:green;
 }
