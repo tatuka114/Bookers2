@@ -1,69 +1,39 @@
 <div class="container">
-  <% if @book.errors.any? %>
-    <div class="errors">
-      <h2><%= @book.errors.count %>errors prohibited this book from being saved:</h2>
-      <ul>
-      <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "books/error", book: @book %>
   <div class="row">
-    <div class=".col-lg-3">
-      <h2>User info</h2>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "no_image.jpg" %>
+    <div class="col-xs-3">
+      <%= render "users/user", user: @user %>
+      <h2>New book</h2>
+      <%= render "books/new", book: @book %>
+    </div>
+    <div class="col-xs-9"></div>
+      <h2>Books</h2>
       <table>
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </thead>
         <tbody>
-          <tr>
-            <th>name</th>
-            <th><%#= @user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th></th>
-          </tr>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to user_path(book.user) do %>
+                  <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td>
+                <%= book.opinion %>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
-      <div>
-        <% if @user.id == current_user.id %>
-          <%= link_to "edit", edit_user_path(@user) %>
-        <% end %>
-      </div>
-      <h2>New book</h2>
-        <%= form_with model: @book, local:true do |f| %>
-          <div class="form-group">
-            <p>Title</p>
-            <%= f.text_field :title %>
-          </div>
-          <div class="form-group">
-            <p>Opinion</p>
-            <%= f.text_area :opinion %>
-          </div>
-          <%= f.submit "Create Book" %>
-        <% end %>
     </div>
-
-    <h2>Books</h2>
-    <% @books.each do |book| %>
-    <tbody>
-
-      <tr>
-
-        <td>
-          <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
-        </td>
-        <td>
-          <%= link_to book_path(book.id) do %>
-            <%= book.title %>
-          <% end %>
-        </td>
-        <td>
-          <%= book.opinion %>
-        </td>
-      </tr>
-
-    </tbody>
-    <% end %>
-  </table>
+  </div>
 </div>
