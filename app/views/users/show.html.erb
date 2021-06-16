@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render "books/error", book: @book %>
   <div class="row">
     <div class="col-xs-3">
       <%= render "users/user", user: @user %>
@@ -28,7 +29,7 @@
                 <% end %>
               </td>
               <td>
-                <%= book.opinion %>
+                <%= book.body %>
               </td>
             </tr>
           </tbody>
