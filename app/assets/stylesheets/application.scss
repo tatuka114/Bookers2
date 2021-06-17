@@ -22,7 +22,7 @@
   box-sizing: border-box;
 }
 .notice{
-  color:green;
+  color: green;
 }
 span a{
   color: #fff;
@@ -38,4 +38,12 @@ span a:hover{
 }
 .btn:hover{
   color:rgba(255,255,255,0.7);
+}
+.error{
+  color: red;
+}
+.errors-message{
+  font-size: 12px;
+  list-style: square;
+  margin-left: 60px;
 }

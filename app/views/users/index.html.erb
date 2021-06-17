@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render "books/error", book: @book %>
+  <%= render "books/error", model: @book %>
   <div class="row">
     <div class="col-xs-3">
       <%= render "users/user", user: @user %>
@@ -19,7 +19,7 @@
 	  	  	<tr>
 	  	  	  <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50,fallback: "no_image.jpg"%></td>
 	  	  	  <td><%= user.name %></td>
-	  	  	  <td><%= link_to "Show", user_path(user_id) %></td>
+	  	  	  <td><%= link_to "Show", user_path(user.id) %></td>
 	  	  	</tr>
   	  	  <% end %>
   	  	</tbody>
