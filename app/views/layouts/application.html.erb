@@ -21,7 +21,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="nav  navbar-nav navbar-auto navbar-brand">
+              <ul class="nav  navbar-nav navbar-right navbar-brand">
                 <% if user_signed_in? %>
                   <li>
                     <%= link_to user_path(current_user.id), class:"btn" do %>
@@ -56,7 +56,7 @@
                   </li>
                   <li>
                     <%= link_to new_user_registration_path, class:"btn" do %>
-                    <span><%= icon("fas", "user-plus") %> sigh_up</span>
+                    <span><%= icon("fas", "user-plus") %> sigh up</span>
                     <% end %>
                   </li>
                   <li>
@@ -72,8 +72,8 @@
     </header>
     <main>
       <p class="notice"><%= notice %></p>
+      <%= yield %>
     </main>
-    <%= yield %>
     <footer>
       <div class="container mt-5">
         <div class="row">
