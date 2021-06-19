@@ -43,7 +43,7 @@ Userモデルのテスト
 [32m      タイトルが表示される[0m
 [32m      Homeリンクが表示される: 左上から1番目のリンクが「Home」である[0m
 [32m      Aboutリンクが表示される: 左上から2番目のリンクが「About」である[0m
-[31m      sign upリンクが表示される: 左上から3番目のリンクが「sign up」である (FAILED - 2)[0m
+[32m      sign upリンクが表示される: 左上から3番目のリンクが「sign up」である[0m
 [32m      loginリンクが表示される: 左上から4番目のリンクが「login」である[0m
     リンクの内容を確認
 [32m      Homeを押すと、トップ画面に遷移する[0m
@@ -196,9 +196,9 @@ Userモデルのテスト
 [32m    ユーザ新規登録成功時[0m
 [32m    ユーザログイン成功時[0m
 [32m    ユーザログアウト成功時[0m
-[31m    ユーザのプロフィール情報更新成功時 (FAILED - 3)[0m
+[32m    ユーザのプロフィール情報更新成功時[0m
 [32m    投稿データの新規投稿成功時: 投稿一覧画面から行います。[0m
-[31m    投稿データの更新成功時 (FAILED - 4)[0m
+[32m    投稿データの更新成功時[0m
   処理失敗時のテスト
     ユーザ新規登録失敗: nameを1文字にする
 [32m      新規登録されない[0m
@@ -207,7 +207,7 @@ Userモデルのテスト
     ユーザのプロフィール情報編集失敗: nameを1文字にする
 [32m      更新されない[0m
 [32m      ユーザ編集画面を表示しており、フォームの内容が正しい[0m
-[31m      バリデーションエラーが表示される (FAILED - 5)[0m
+[31m      バリデーションエラーが表示される (FAILED - 2)[0m
     投稿データの新規投稿失敗: 投稿一覧画面から行い、titleを空にする
 [32m      投稿が保存されない[0m
 [32m      投稿一覧画面を表示している[0m
@@ -244,7 +244,7 @@ Userモデルのテスト
     他人のユーザ詳細画面のテスト
       表示の確認
 [32m        URLが正しい[0m
-[31m        投稿一覧のユーザ画像のリンク先が正しい (FAILED - 6)[0m
+[31m        投稿一覧のユーザ画像のリンク先が正しい (FAILED - 3)[0m
 [32m        投稿一覧に他人の投稿のtitleが表示され、リンクが正しい[0m
 [32m        投稿一覧に他人の投稿のopinionが表示される[0m
 [32m        自分の投稿は表示されない[0m
@@ -256,10 +256,10 @@ Userモデルのテスト
     他人のユーザ情報編集画面
 [32m      遷移できず、自分のユーザ詳細画面にリダイレクトされる[0m
   グリッドシステムのテスト: container, row, col-md-〇を正しく使えている
-[31m    ユーザ一覧画面 (FAILED - 7)[0m
-[31m    ユーザ詳細画面 (FAILED - 8)[0m
-[31m    投稿一覧画面 (FAILED - 9)[0m
-[31m    投稿詳細画面 (FAILED - 10)[0m
+[32m    ユーザ一覧画面[0m
+[32m    ユーザ詳細画面[0m
+[32m    投稿一覧画面[0m
+[32m    投稿詳細画面[0m
   アイコンのテスト
     トップ画面
 [32m      本のアイコンが表示される[0m
@@ -298,71 +298,22 @@ Failures:
      [31m  [0m[0m
      [36m# ./spec/models/user_spec.rb:33:in `block (4 levels) in <main>'[0m
 
-  2) [STEP1] ユーザログイン前のテスト ヘッダーのテスト: ログインしていない場合 表示内容の確認 sign upリンクが表示される: 左上から3番目のリンクが「sign up」である
-     [31mFailure/Error: expect(signup_link).to match(/sign up/i)[0m
-     [31m[0m
-     [31m  expected "\n                     sigh_up\n" to match /sign up/i[0m
-     [31m  Diff:[0m[0m
-     [31m  [0m[34m@@ -1,2 +1,3 @@[0m
-     [31m  [0m[31m-/sign up/i[0m
-     [31m  [0m[32m+[0m
-     [31m  [0m[32m+                     sigh_up[0m
-     [31m  [0m[0m
-     [36m# ./spec/system/01_before_login_spec.rb:63:in `block (4 levels) in <main>'[0m
-
-  3) [STEP3] 仕上げのテスト サクセスメッセージのテスト ユーザのプロフィール情報更新成功時
-     [31mFailure/Error: is_expected.to have_content 'successfully'[0m
-     [31m  expected to find text "successfully" in "Bookers\nHome Users Books logout\nUser info\nname qbc62uli7l introduction zi5q5mkrkkrhg9nkmm6l\nNew book\nTitle\nOpinion\nBooks\nTitle Opinion 09q74 9y4o1haelew6syiotqqx\nCopyRight Infratop.inc"[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:45:in `block (3 levels) in <main>'[0m
-
-  4) [STEP3] 仕上げのテスト サクセスメッセージのテスト 投稿データの更新成功時
-     [31mFailure/Error: is_expected.to have_content 'successfully'[0m
-     [31m  expected to find text "successfully" in "Bookers\nHome Users Books logout\nUser info\nname qc9fl4rfxp introduction vtcdcesvko65uflzspok\nNew book\nTitle\nOpinion\nBook detail\nqc9fl4rfxp\nl4bpa vm38lgvo47l6r92a7ryl Edit Destroy\nCopyRight Infratop.inc"[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:65:in `block (3 levels) in <main>'[0m
-
-  5) [STEP3] 仕上げのテスト 処理失敗時のテスト ユーザのプロフィール情報編集失敗: nameを1文字にする バリデーションエラーが表示される
+  2) [STEP3] 仕上げのテスト 処理失敗時のテスト ユーザのプロフィール情報編集失敗: nameを1文字にする バリデーションエラーが表示される
      [31mFailure/Error: expect(page).to have_content "is too short (minimum is 2 characters)"[0m
-     [31m  expected to find text "is too short (minimum is 2 characters)" in "Bookers\nHome Users Books logout\nUser info\nName\nImage Introduction yvmmh9v0b0idt1023y2t\nCopyRight Infratop.inc"[0m
+     [31m  expected to find text "is too short (minimum is 2 characters)" in "Bookers\nHome Users Books logout\nUser info\nName\nImage Introduction p4h5thizhiehmosqhd6q\nCopyRight Infratop.inc"[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:116:in `block (4 levels) in <main>'[0m
 
-  6) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
+  3) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
      [31mFailure/Error: expect(page).to have_link '', href: user_path(other_user)[0m
      [31m  expected to find link "" with href "/users/1" but there were no matches[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:277:in `block (5 levels) in <main>'[0m
 
-  7) [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている ユーザ一覧画面
-     [31mFailure/Error: is_expected.to have_selector '.container .row .col-md-3'[0m
-     [31m  expected to find css ".container .row .col-md-3" but there were no matches[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:329:in `block (3 levels) in <main>'[0m
-
-  8) [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている ユーザ詳細画面
-     [31mFailure/Error: is_expected.to have_selector '.container .row .col-md-3'[0m
-     [31m  expected to find css ".container .row .col-md-3" but there were no matches[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:334:in `block (3 levels) in <main>'[0m
-
-  9) [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿一覧画面
-     [31mFailure/Error: is_expected.to have_selector '.container .row .col-md-3'[0m
-     [31m  expected to find css ".container .row .col-md-3" but there were no matches[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:339:in `block (3 levels) in <main>'[0m
-
-  10) [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿詳細画面
-      [31mFailure/Error: is_expected.to have_selector '.container .row .col-md-3'[0m
-      [31m  expected to find css ".container .row .col-md-3" but there were no matches[0m
-      [36m# ./spec/system/03_finishing_touches_spec.rb:344:in `block (3 levels) in <main>'[0m
-
-Finished in 16.94 seconds (files took 1.66 seconds to load)
-[31m197 examples, 10 failures[0m
+Finished in 8.2 seconds (files took 1.38 seconds to load)
+[31m197 examples, 3 failures[0m
 
 Failed examples:
 
 [31mrspec ./spec/models/user_spec.rb:31[0m [36m# Userモデルのテスト バリデーションのテスト nameカラム 一意性があること[0m
-[31mrspec ./spec/system/01_before_login_spec.rb:61[0m [36m# [STEP1] ユーザログイン前のテスト ヘッダーのテスト: ログインしていない場合 表示内容の確認 sign upリンクが表示される: 左上から3番目のリンクが「sign up」である[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:38[0m [36m# [STEP3] 仕上げのテスト サクセスメッセージのテスト ユーザのプロフィール情報更新成功時[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:58[0m [36m# [STEP3] 仕上げのテスト サクセスメッセージのテスト 投稿データの更新成功時[0m
 [31mrspec ./spec/system/03_finishing_touches_spec.rb:115[0m [36m# [STEP3] 仕上げのテスト 処理失敗時のテスト ユーザのプロフィール情報編集失敗: nameを1文字にする バリデーションエラーが表示される[0m
 [31mrspec ./spec/system/03_finishing_touches_spec.rb:276[0m [36m# [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:327[0m [36m# [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている ユーザ一覧画面[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:332[0m [36m# [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている ユーザ詳細画面[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:337[0m [36m# [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿一覧画面[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:342[0m [36m# [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿詳細画面[0m
 

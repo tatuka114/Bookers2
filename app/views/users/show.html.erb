@@ -1,12 +1,12 @@
 <div class="container">
   <%= render "books/error", model: @book %>
   <div class="row">
-    <div class="col-xs-3">
+    <div class="col-md-3">
       <%= render "users/user", user: @user %>
       <h2>New book</h2>
       <%= render "books/new", book: @book %>
     </div>
-    <div class="col-xs-9">
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table>
         <thead>
@@ -21,7 +21,9 @@
           <tbody>
             <tr>
               <td>
-                <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+
+                  <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+
               </td>
               <td>
                 <%= link_to book_path(book.id) do %>
