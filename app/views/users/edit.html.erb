@@ -1,5 +1,6 @@
 
 <h2>User info</h2>
+<%= render "books/error", model: @user %>
 <%= form_with model:@user, local:true do |f| %>
   <label for="inputName">Name</lbdel>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
